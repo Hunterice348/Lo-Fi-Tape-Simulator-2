@@ -1,7 +1,16 @@
 cmake_minimum_required(VERSION 3.22)
 project(LoFiTapeSimulator VERSION 1.0.0)
 
-add_subdirectory(JUCE)
+include(FetchContent)
+
+FetchContent_Declare(
+    JUCE
+    GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
+    GIT_TAG        7.0.9 # Можно указать нужную версию
+    GIT_SHALLOW    TRUE
+)
+
+FetchContent_MakeAvailable(JUCE)
 
 juce_add_plugin(LoFiTapeSimulator
     COMPANY_NAME "LoFiLabs"
