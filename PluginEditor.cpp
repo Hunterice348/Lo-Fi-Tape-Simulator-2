@@ -56,7 +56,6 @@ void LoFiTapeSimulatorAudioProcessorEditor::paint(juce::Graphics& g)
     g.setFont(16.0f);
     g.drawText("SIMULATOR", subtitleBounds, juce::Justification::centred);
 
-    // ИСПРАВЛЕНО: добавлено .toFloat()
     g.setColour(juce::Colour(0xFF8B6F47));
     g.fillEllipse(leftReelBounds.toFloat());
 
@@ -70,7 +69,6 @@ void LoFiTapeSimulatorAudioProcessorEditor::paint(juce::Graphics& g)
                    cx + std::cos(angle) * 35.0f, cy + std::sin(angle) * 35.0f, 3.0f);
     }
 
-    // ИСПРАВЛЕНО: добавлено .toFloat()
     g.setColour(juce::Colour(0xFF8B6F47));
     g.fillEllipse(rightReelBounds.toFloat());
 
