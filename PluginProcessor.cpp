@@ -1,6 +1,7 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-#include <random>   
+#include <random>
+
 LoFiTapeSimulatorAudioProcessor::LoFiTapeSimulatorAudioProcessor()
     : AudioProcessor(BusesProperties()
                      .withInput("Input", juce::AudioChannelSet::stereo(), true)
@@ -10,6 +11,7 @@ LoFiTapeSimulatorAudioProcessor::LoFiTapeSimulatorAudioProcessor()
       noiseDist(-1.0f, 1.0f)
 {
 }
+
 LoFiTapeSimulatorAudioProcessor::~LoFiTapeSimulatorAudioProcessor() {}
 
 juce::AudioProcessorValueTreeState::ParameterLayout
@@ -181,9 +183,9 @@ void LoFiTapeSimulatorAudioProcessor::applyWowFlutter(juce::AudioBuffer<float>& 
 
         for (int channel = 0; channel < numChannels; ++channel)
         {
-            delayBuffers[channel][delayWritePos] = buffer.getSample(channel, sample);
-            float s1 = delayBuffers[channel][readPos];
-            float s2 = delayBuffers[channel][readPos2];
+            delayBuffers[static_cast<size_t>(channel)][static_cast<size_t>(delayWritePos)] = buffer.getSample(channel, sample);
+            float s1 = delayBuffers[static_cast<size_t>(channel)][static_cast<size_t>(readPos)];
+            float s2 = delayBuffers[static_cast<size_t>(channel)][static_cast<size_t>(readPos2)];
             buffer.setSample(channel, sample, s1 * (1.0f - frac) + s2 * frac);
         }
 
