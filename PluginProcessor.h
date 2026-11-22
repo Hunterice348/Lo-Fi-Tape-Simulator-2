@@ -1,5 +1,6 @@
 #pragma once
 #include <JuceHeader.h>
+#include <random> // Добавлено для решения ошибки std::mt19937
 
 class LoFiTapeSimulatorAudioProcessor : public juce::AudioProcessor
 {
