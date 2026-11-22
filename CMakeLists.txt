@@ -14,6 +14,7 @@ juce_add_plugin(LoFiTapeSimulator
     PRODUCT_NAME "Lo-Fi Tape Simulator"
     PLUGIN_CATEGORY "Fx"
     VST3_CATEGORIES "Fx"
+    VST3_AUTO_MANIFEST FALSE
 )
 
 target_sources(LoFiTapeSimulator PRIVATE
