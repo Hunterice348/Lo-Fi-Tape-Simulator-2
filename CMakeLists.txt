@@ -6,12 +6,11 @@ include(FetchContent)
 FetchContent_Declare(
     JUCE
     GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
-    GIT_TAG        7.0.9 # Можно указать нужную версию
+    GIT_TAG        8.0.4  # Используем JUCE 8, совместимый с macOS 15
     GIT_SHALLOW    TRUE
 )
 
 FetchContent_MakeAvailable(JUCE)
-
 juce_add_plugin(LoFiTapeSimulator
     COMPANY_NAME "LoFiLabs"
     IS_SYNTH FALSE
