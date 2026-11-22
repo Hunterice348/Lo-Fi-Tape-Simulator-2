@@ -10,7 +10,6 @@ LoFiTapeSimulatorAudioProcessor::LoFiTapeSimulatorAudioProcessor()
       noiseDist(-1.0f, 1.0f)
 {
 }
-
 LoFiTapeSimulatorAudioProcessor::~LoFiTapeSimulatorAudioProcessor() {}
 
 juce::AudioProcessorValueTreeState::ParameterLayout
