@@ -1,6 +1,6 @@
-#include <random>
 #pragma once
 #include <JuceHeader.h>
+#include <random>   // ДОБАВЛЕНО
 
 class LoFiTapeSimulatorAudioProcessor : public juce::AudioProcessor
 {
