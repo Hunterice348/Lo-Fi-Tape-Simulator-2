@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch: # Позволяет запускать сборку вручную
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,8 +19,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Установка зависимостей для Linux (для Windows и macOS не требуется)
-        - name: Install Linux Dependencies
+    - name: Install Linux Dependencies
       if: runner.os == 'Linux'
       run: |
         sudo apt-get update
@@ -30,15 +29,13 @@ jobs:
           libx11-dev libxcomposite-dev libxcursor-dev libxext-dev \
           libxinerama-dev libxrandr-dev libxrender-dev \
           libglu1-mesa-dev mesa-common-dev
-    # Настройка CMake (JUCE скачается автоматически благодаря FetchContent)
+
     - name: Configure CMake
       run: cmake -B build -DCMAKE_BUILD_TYPE=Release
 
-    # Сборка
     - name: Build
       run: cmake --build build --config Release
 
-    # Загрузка готового VST3 как артефакта
     - name: Upload VST3 Artifact
       uses: actions/upload-artifact@v4
       with:
